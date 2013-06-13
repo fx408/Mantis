@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Setting</title>
+
+		<script type="text/javascript" src="/js/header.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<h5><a href="javascript:;" id="addItemLink"><lang>add</lang> Mantis</a></h5>
+			<div id="addItem" style="display:none; position:fixed; top:40px;">
+				<div class="input-prepend">
+				  <span class="add-on"><lang>name</lang></span>
+				  <input class="span3" name="mantisName" type="text" placeholder="Mantis">
+				</div>
+				<div class="input-prepend">
+				  <span class="add-on"><lang>address</lang></span>
+				  <input class="span3" name="mantisLink" type="text" placeholder="Mantis URL">
+				</div>
+				<div style="color:red"><lang>add_remark</lang></div>
+				<div>
+					<button class="btn btn-info" name="add"><lang>add</lang></button>
+					<button class="btn" name="cancel"><lang>cancel</lang></button>
+				</div>
+			</div>
+			
+			<div class="tabbable">
+				<table class="table table-hover" id="mantisList">
+					<thead>
+						<tr>
+							<th>Mantis</th>
+							<th width="130"><lang>operator</lang></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+			</div>
+			<script type="text/javascript" src="/js/footer.js"></script>
+		</div>
+		<script type="text/javascript" src="/js/setting.js"></script>
+	</body>
+</html>
+
