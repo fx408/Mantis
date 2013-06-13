@@ -81,11 +81,9 @@ function _background() {
 			return false;
 		}
 		
-		var frequency = LDB.item("frequency");
-		if(frequency === null) frequency = this.defaults.frequency;
+		var frequency = LDB.item("frequency") || this.defaults.frequency;;
 		frequency = Math.max(this.minFrequency, Math.min(parseInt(frequency), this.maxFrequency));
 		
-		showLoadingAnimation = false;
 		this._setTimeout("run", frequency);
 		request();
 	}
