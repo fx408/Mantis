@@ -61,6 +61,11 @@ function _background() {
 		chrome.browserAction.setBadgeText({text: string});
 	}
 	
+	this.refresh = function() {
+		busy = false;
+		this.run();
+	}
+	
 	this.timeOutCache = {};
 	this._setTimeout = function(func, time) {
 		var _this = this;
@@ -85,6 +90,7 @@ function _background() {
 		frequency = Math.max(this.minFrequency, Math.min(parseInt(frequency), this.maxFrequency));
 		
 		this._setTimeout("run", frequency);
+		console.log("runrunrun");
 		request();
 	}
 }

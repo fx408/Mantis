@@ -3,6 +3,7 @@ var setting = {
 	mantisAddressKey: "mantis_address",
 	maxKey: 0,
 	
+	// 显示列表
 	showList: function() {
 		var list = LDB.item(this.mantisListKey) || {},
 			address = LDB.item(this.mantisAddressKey),
@@ -23,6 +24,7 @@ var setting = {
 		$("#mantisList tbody").html(html);
 	},
 	
+	// 更新列表
 	updateList: function(val) {
 		var list = LDB.item(this.mantisListKey) || {},
 			k = this.maxKey*1 + 1,
@@ -41,11 +43,18 @@ var setting = {
 		$("#addItem").hide();
 	},
 	
+	// 更新监控地址
 	updateAddress: function(mid) {
 		var list = LDB.item(this.mantisListKey) || {};
 		console.log(list[mid]);
 		if(list[mid]) {
 			LDB.set(this.mantisAddressKey, list[mid].link);
+			
+			try{
+				chrome.extension.getBackgroundPage().BK.refresh();
+			} catch(e) {
+				console.log(e);
+			}
 		}
 	},
 	
@@ -83,9 +92,6 @@ $(function() {
 	.on("click", ".btn-info", function() {
 		setting.updateAddress($(this).attr("mid"));
 		setting.showList();
-	}).on("mouseover", "tr", function() {
-		//$("#mantisList").find(".btn-danger, .btn-success").hide();
-		//$(this).find("button").show();
 	});
 	
 	setting.showList();
